@@ -1,0 +1,37 @@
+package application;
+
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
+public class Program {
+
+	public static void main(String[] args) {
+
+		DateTimeFormatter fmt1 = DateTimeFormatter.ofPattern("dd/MM/YYYY");
+		DateTimeFormatter fmt2 = DateTimeFormatter.ofPattern("dd/MM/YYYY HH:mm");
+		// Instanciando data-horas
+		// agora -> data-hora
+		LocalDate d01 = LocalDate.now();
+		LocalDateTime d02 = LocalDateTime.now();
+		Instant d03 = Instant.now();
+		
+		// Texto ISO 8601 -> data-hora
+		LocalDate d04 = LocalDate.parse("2022-07-20");
+		LocalDateTime d05 = LocalDateTime.parse("2022-07-20T01:30:26");
+		Instant d06 = Instant.parse("2022-07-20T01:30:26Z");
+		Instant d07 = Instant.parse("2022-07-20T01:30:26-03:00");
+		
+		// texto formatado atualizado -> data-hora
+		LocalDate d08 = LocalDate.parse("03/04/2023", fmt1);
+		LocalDate d09 = LocalDate.parse("03/04/2023 01:30", fmt2);
+		
+		// dia, mês, ano, [horário] -> data-hora local
+		LocalDate d10 = LocalDate.of(2023, 4, 4);
+		LocalDateTime d11 = LocalDateTime.of(2022, 4, 4, 1, 30);
+		
+		System.out.println(d05);
+	}
+
+}
